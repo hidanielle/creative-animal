@@ -1,0 +1,51 @@
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+     -moz-transition: $transition-property $transition-time $method;
+      -ms-transition: $transition-property $transition-time $method;
+       -o-transition: $transition-property $transition-time $method;
+          transition: $transition-property $transition-time $method;
+}
+
+@mixin transitionTransform($transition-time, $method) {
+  -webkit-transition: -webkit-transform $transition-time $method;
+     -moz-transition: -moz-transform $transition-time $method;
+      -ms-transition: -ms-transform $transition-time $method;
+       -o-transition: -o-transform $transition-time $method;
+          transition: transform $transition-time $method;
+}
+
+@mixin transform($transforms) {
+  -webkit-transform: $transforms;
+     -moz-transform: $transforms;
+      -ms-transform: $transforms;
+       -o-transform: $transforms;
+          transform: $transforms;
+}
+
+@mixin animation-duration($duration) {
+  -webkit-animation-duration: $duration;
+          animation-duration: $duration;
+}
+
+@mixin animation-name($name) {
+  -webkit-animation-name: $name;
+          animation-name: $name;
+}
+
+
+////// MQ's //////
+// $large-screen: "(min-width: 1200px)";
+// $medium-screen: "(max-width: 767px)";
+// $small-screen: "(max-width: 520px)";
+
+@mixin breakpoint($point) {
+  @if $point == lrg-screen {
+    @media (max-width: 1200px) { @content; }
+  }
+  @else if $point == med-screen {
+    @media (max-width: 767px) { @content; }
+  }
+  @else if $point == sml-screen {
+    @media (max-width: 520px)  { @content; }
+  }
+}
