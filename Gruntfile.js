@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-
+  var port = grunt.option('port') || 8000;
   // Project configuration.
   grunt.initConfig({
 
@@ -80,15 +80,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
-  grunt.registerTask('default', ['css', 'js', 'haml']);
-
-  // JS task
-  grunt.registerTask( 'js', [ 'jshint', 'uglify'] );
-
-  // All CSS
-  grunt.registerTask( 'css', [ 'sass', 'autoprefixer' ] );
-
-  // Serve presentation locally
-  grunt.registerTask( 'serve', [ 'connect', 'watch' ] );
+  grunt.registerTask('default', ['uglify', 'sass', 'autoprefixer', 'haml', 'watch']);
+ 
 
 };
