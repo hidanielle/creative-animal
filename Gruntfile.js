@@ -42,6 +42,17 @@ module.exports = function(grunt) {
       }
     },
 
+    connect: {
+      server: {
+        options: {
+          port: port,
+          base: '.',
+                    livereload: true,
+                    open: true
+        }
+      }
+    },
+
     watch: {
       options: { livereload: true },
       scripts: {
@@ -65,9 +76,19 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-haml2html');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'sass', 'autoprefixer', 'haml', 'watch']);
+  grunt.registerTask('default', ['css', 'js', 'haml']);
+
+  // JS task
+  grunt.registerTask( 'js', [ 'jshint', 'uglify'] );
+
+  // All CSS
+  grunt.registerTask( 'css', [ 'sass', 'autoprefixer' ] );
+
+  // Serve presentation locally
+  grunt.registerTask( 'serve', [ 'connect', 'watch' ] );
 
 };
