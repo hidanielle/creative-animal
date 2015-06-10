@@ -37,7 +37,7 @@ module.exports = function(grunt) {
     haml: {                              // Task
       dist: {                            // Target
         files: {                         // Dictionary of files
-          'index.html': 'index.haml'     // 'destination': 'source'
+          'index.html': 'haml/index.haml'     // 'destination': 'source'
         }
       }
     },
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
         tasks: ['sass']
       }, //sass
       html: {
-        files: ['*.haml'],
+        files: ['haml/*.haml'],
         tasks: ['haml']
       }
     } //watch
@@ -80,7 +80,16 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'sass', 'autoprefixer', 'haml', 'watch']);
+  grunt.registerTask('default', ['css', 'js', 'haml']);
+
+  // JS task
+  grunt.registerTask( 'js', ['uglify'] );
+
+  // All CSS
+  grunt.registerTask( 'css', [ 'sass', 'autoprefixer' ] );
+
+  // Serve presentation locally
+  grunt.registerTask( 'serve', [ 'connect', 'watch' ] );
  
 
 };
