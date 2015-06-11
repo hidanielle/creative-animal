@@ -24,4 +24,4 @@
 
 8. Push your local files to the remote repo:
 
-        git push -u origin master
+        git push -u origin master 
