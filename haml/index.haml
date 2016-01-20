@@ -1,19 +1,381 @@
-<!DOCTYPE html>
-%html{:lang => "en"}
+!!!
+%html
   %head
-    %meta{:charset => "UTF-8"}
-    %meta{:name => "viewport", :content => "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"}
-    / %link{:rel => "shortcut icon", :type => "image/x-icon", :href => "favicon.ico"}
-    <!--[if lte IE 8]>
-    <script type="text/javascript" src="scripts/libs/html5shiv.js"></script>  
-    <![endif]-->
-    / %link{:href => 'http://fonts.googleapis.com/css?family=Magra:400,700|Bree+Serif', :rel => 'stylesheet', :type => 'text/css'}
-    / %link{:href => "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", :rel => "stylesheet"}
-    %link{:rel => "stylesheet", :href => "styles/build/site.css"}
-    %title Danielle's Grunt Boilerplate
+    %title What's Your Creative Spirit Animal?
+    %meta{:charset => "utf-8"}
+    %meta{:content => "width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui", :name => "viewport"}
+    %meta{:description => "What's Your Creative Spirit Animal?"}
+
+    -# Facebook
+
+    %meta{:property => "og:title", :content => "What's Your Creative Spirit Animal"}
+    %meta{:property => "og:site_name", :content => "What's Your Creative Spirit Animal"}
+    %meta{:property => "og:type", :content => "website"}
+    %meta{:property => "og:description", :content => "Regardless of whether your 2014 was outstanding or underwhelming, we - the Creative and Interactive Services team - want to wish you an even better 2015!"}
+
+    -# Twitter
+    %meta{:name => "twitter:card", :content => "summary"}
+    %meta{:name => "twitter:title", :content => "What's Your Creative Spirit Animal"}
+    %meta{:name => "twitter:description", :content => "Regardless of whether your 2014 was outstanding or underwhelming, we - the Creative and Interactive Services team - want to wish you an even better 2015!"}
+
+    -# Favicon
+    %link{:rel => "shortcut icon", :href => "favicon.ico", :type => "image/x-icon"}
+    %link{:rel => "icon", :href => "favicon.ico", :type => "image/x-icon"}
+
+    -# Main Stylesheet
+    %link{:href => "http://fonts.googleapis.com/css?family=Leckerli+One|Changa+One|Montserrat:400,700|Raleway:400,800,700", :rel => "stylesheet", :type => "text/css"}
+    %link{ rel: 'stylesheet', :href => "styles/build/main.css" }
+
+    /[if lte IE 9]
+
+      /***** %link{ rel: 'stylesheet', href: stylesheet_path('ie8') }
+
+    %noscript
+      
+      /***** %link{ rel: 'stylesheet', href: stylesheet_path('noscript') }
+
+
+    / %script{:src => "http://10.7.101.31:8080/target/target-script-min.js#anonymous"}
+    -# Google Analytics
+    / = render "partials/_analytics.html.haml"
 
   %body
-    Hello
-    %script{:src => "http://code.jquery.com/jquery-1.11.1.min.js"}
-    %script{:src => "scripts/build/site.min.js"}
-    
+    .ie-warning{:style => "display: none"}
+      %p  We’ve detected that your browser is out of date. Please upgrade your browser for an improved experience.
+    .loading
+      .loading-container 
+        %span &#x2744
+    %main{:role => 'main'}
+
+
+      .main-container{:style => "display: none;"}
+        .quiz-logo
+        #snowHillContainer.start
+        %canvas#canvas
+        %section.quiz-start
+          %article
+            .heading
+              %h1#page-heading 
+                %span.hide-text What's Your Creative Spirit Animal?
+            .action-container
+              .btn-start 
+                %span.hide-text Find Out
+          %aside.attribution
+
+        %section#question-one.quiz-question{:data => {:progress => "step-1"}}
+          %article
+            %legend
+              What's your name?
+            .field.field-text
+              %input.name-field{ placeholder: 'First Name', type: 'text', name: 'first_name', id: 'first_name' }
+            .field.field-text
+              %input.name-field{ placeholder: 'Last Name', type: 'text', name: 'last_name', id: 'last_name' }
+
+            %button.btn-continue{:style => "display:none;"} Continue
+
+          %span.btn-back Back
+
+        %section#question-two.quiz-question{:data => {:progress => "step-2"}}
+          %article
+            %h4 Question One
+            %legend
+              %span.first-name
+              What would you rather swim in?
+            .field.field-radio.option-one
+              %input{:type => "radio", :name => "question-1", :id => "question-1-1", :value => "One", :data => {:key => "dew"}}
+              %label{:for => "question-1-1"}
+                %span.vertical-align 
+                  %p Money
+            .field.field-radio.option-two
+              %input{:type => "radio", :name => "question-1", :id => "question-1-2", :value => "Two", :data => {:key => "glue"}}
+              %label{:for => "question-1-2"}
+                %span.vertical-align 
+                  %p Champagne 
+            .field.field-radio.option-three
+              %input{:type => "radio", :name => "question-1", :id => "question-1-3", :value => "Three", :data => {:key => "skew"}}
+              %label{:for => "question-1-3"}
+                %span.vertical-align 
+                  %p Tapioca Pudding
+
+          %span.btn-back Back
+
+
+        %section#question-three.quiz-question.picture-question{:data => {:progress => "step-3"}}
+          %article
+            %h4 Question Two
+            %legend
+              What is your preferred headwear? 
+            .field.field-radio.option-one
+              %input{:type => "radio", :name => "question-4", :id => "question-4-4", :value => "One", :data => {:key => "dew"}}
+              %label{:for => "question-4-4"} 
+                %span.hide-text Cool-looking bike or motorcycle helmet 
+            .field.field-radio.option-two
+              %input{:type => "radio", :name => "question-4", :id => "question-4-5", :value => "Two", :data => {:key => "glue"}}
+              %label{:for => "question-4-5"} 
+                %span.hide-text Rugged-looking cowboy hat 
+            .field.field-radio.option-three
+              %input{:type => "radio", :name => "question-4", :id => "question-4-6", :value => "Three", :data => {:key => "skew"}}
+              %label{:for => "question-4-6"} 
+                %span.hide-text Fez
+
+          %span.btn-back Back
+
+
+        %section#question-four.quiz-question{:data => {:progress => "step-4"}}
+          %article
+            %h4 Question Three
+            %legend
+              You forgot your ice cream upstairs and the stairs collapsed! How will you get back before it melts?
+            .field.field-radio.option-one
+              %input{:type => "radio", :name => "question-2", :id => "question-2-4", :value => "One", :data => {:key => "dew"}}
+              %label{:for => "question-2-4"} 
+                %span.vertical-align 
+                  %p Make a bed sheet rope and climb back up. 
+            .field.field-radio.option-two
+              %input{:type => "radio", :name => "question-2", :id => "question-2-5", :value => "Two", :data => {:key => "glue"}}
+              %label{:for => "question-2-5"} 
+                %span.vertical-align 
+                  %p Build a new staircase and walk back up. 
+            .field.field-radio.option-three
+              %input{:type => "radio", :name => "question-2", :id => "question-2-6", :value => "Three", :data => {:key => "skew"}}
+              %label{:for => "question-2-6"} 
+                %span.vertical-align 
+                  %p Make a bed sheet cape and fly back up. 
+
+          %span.btn-back Back
+
+        %section#question-five.quiz-question.picture-question{:data => {:progress => "step-5"}}
+          %article
+            %h4 Question Four
+            %legend
+              The apocalypse is here! What do you reach for?  
+            .field.field-radio.option-one
+              %input{:type => "radio", :name => "question-5", :id => "question-5-4", :value => "One", :data => {:key => "dew"}}
+              %label{:for => "question-5-4"} 
+                %span.hide-text Crowbar
+            .field.field-radio.option-two
+              %input{:type => "radio", :name => "question-5", :id => "question-5-5", :value => "Two", :data => {:key => "glue"}}
+              %label{:for => "question-5-5"} 
+                %span.hide-text Walkie talkie  
+            .field.field-radio.option-three
+              %input{:type => "radio", :name => "question-5", :id => "question-5-6", :value => "Three", :data => {:key => "skew"}}
+              %label{:for => "question-5-6"} 
+                %span.hide-text A colouring book 
+
+          %span.btn-back Back
+
+        %section#question-six.quiz-question{:data => {:progress => "step-6"}}
+          %article
+            %h4 Question Five
+            %legend
+              Egads! The world’s coffee supply has run out! How will you wake up from now on?
+            .field.field-radio.option-one
+              %input{:type => "radio", :name => "question-3", :id => "question-3-4", :value => "One", :data => {:key => "dew"}}
+              %label{:for => "question-3-4"} 
+                %span.vertical-align 
+                  %p Progressively harder slaps to the face. 
+            .field.field-radio.option-two
+              %input{:type => "radio", :name => "question-3", :id => "question-3-5", :value => "Two", :data => {:key => "glue"}}
+              %label{:for => "question-3-5"} 
+                %span.vertical-align 
+                  %p Go to bed early and cry yourself to sleep. 
+            .field.field-radio.option-three
+              %input{:type => "radio", :name => "question-3", :id => "question-3-6", :value => "Three", :data => {:key => "skew"}}
+              %label{:for => "question-3-6"} 
+                %span.vertical-align 
+                  %p Buy a parrot and train it to shout “Incoming!” 
+
+          %span.btn-back Back
+
+
+        %section#question-seven.quiz-question.picture-question{:data => {:progress => "step-7"}}
+          %article
+            %h4 Question Six
+            %legend
+              Pick your poison.
+            .field.field-radio.option-one
+              %input{:type => "radio", :name => "question-6", :id => "question-6-4", :value => "One", :data => {:key => "dew"}}
+              %label{:for => "question-6-4"} 
+                %span.hide-text A healthy fruit and vegetable smoothie 
+            .field.field-radio.option-two
+              %input{:type => "radio", :name => "question-6", :id => "question-6-5", :value => "Two", :data => {:key => "glue"}}
+              %label{:for => "question-6-5"} 
+                %span.hide-text A cocktail  
+            .field.field-radio.option-three
+              %input{:type => "radio", :name => "question-6", :id => "question-6-6", :value => "Three", :data => {:key => "skew"}}
+              %label{:for => "question-6-6"} 
+                %span.hide-text A bubbling beaker 
+
+          %span.btn-back Back
+
+
+        %section.quiz-result{:data => {:progress => "step-8"}}
+          / .snow-container
+          %article
+            .results.results-mandrill
+              .pull-l.results-img-container
+                .results-img
+              .pull-l.results-text-container
+                %h3 
+                  %span.first-name
+                  Your Creative Spirit Animal is the...
+                %h1 Mandrill!
+                %h5 Creative, compelling, and kind of crazy.
+                %p
+                  You, my colourful comrade, are a wild card. You might not swing through the air, but your mind sure does. Constantly flinging ideas around like they’re p… aint, your natural instinct is to push boundaries. Why? Because you’re a think-outside-the-cage genius — according to three of the seven voices in your head, anyway. 
+
+                %h5 In 2015, turn those ideas into actions.
+        
+                %button.btn-retake Retake Quiz
+                %button.btn-compare Compare Results
+              
+
+            .results.results-okapi
+              .pull-l.results-img-container
+                .results-img
+              .pull-l.results-text-container
+                %h3 
+                  %span.first-name
+                  Your Creative Spirit Animal is the...
+                %h1 Okapi!
+                %h5 Clever, well-rounded, and aware.
+                %p
+                  You, my proportionate pal, are balanced. As calm and methodical as you are imaginative, you've got more tricks up your sleeves than someone with Swiss Army Knife arms. And while you’re more grounded than most, don't think that makes you less creative — far from it, since your ideas and productivity are often ahead of the curve.
+
+                %h5 In 2015, diversify your skills and interests.
+        
+                %button.btn-retake Retake Quiz
+                %button.btn-compare Compare Results
+
+            .results.results-sloth
+              .pull-l.results-img-container
+                .results-img
+              .pull-l.results-text-container
+                %h3 
+                  %span.first-name
+                  Your Creative Spirit Animal is the...
+                %h1 Three-Toed Sloth! 
+                %h5 Imaginative and idealistic, but prone to procrastination.
+                %p
+                  You, my visionary viewer, are a dreamer. Most people live in houses, but not the sloth. No, the sloth lives in their imagination. That epicentre of creativity and inspiration might be hard for some to find — after all, it foregoes the straight and narrow path in favour of the fun and squiggly one. But to you? It’s home.
+
+                %h5 In 2015, avoid distractions and you’ll go far.
+        
+                %button.btn-retake Retake Quiz
+                %button.btn-compare Compare Results
+
+            .results.results-manatee
+              .pull-l.results-img-container
+                .results-img
+              .pull-l.results-text-container
+                %h3 
+                  %span.first-name
+                  Your Creative Spirit Animal is the...
+                %h1 Manatee!  
+                %h5 Huggable, loveable, and great with people.
+                %p
+                  You, my friendly friend, are empathetic. You understand the importance of floating around and looking adorable, but mostly, connecting with an audience. As such, your ideas buoy people's minds, and your undeniable passion warms their hearts like a thick layer of blubber. 
+
+                %h5 In 2015, champion a cause you care about.
+        
+                %button.btn-retake Retake Quiz
+                %button.btn-compare Compare Results
+
+            .results.results-beetle
+              .pull-l.results-img-container
+                .results-img
+              .pull-l.results-text-container
+                %h3 
+                  %span.first-name
+                  Your Creative Spirit Animal is the...
+                %h1 Dung Beetle!  
+                %h5 Diligent, capable, and willing to get your hands dirty.
+                %p
+                  You, my hard-working hombre, are a producer. Like The Little Engine That Could, your drive to create is surpassed only by your desire to deliver the best ball of work possible. And unlike many of your creative kin, you've managed to achieve an enviable balance between efficiency and perfection. Talk about a tough job!
+
+                %h5 In 2015, do yourself a favour and share the load.
+
+                %button.btn-retake Retake Quiz
+                %button.btn-compare Compare Results
+
+            .results.results-fish
+              .pull-l.results-img-container
+                .results-img
+              .pull-l.results-text-container
+                %h3 
+                  %span.first-name
+                  Your Creative Spirit Animal is the...
+                %h1 Anglerfish!   
+                %h5 Quiet and standoffish, but full of surprises.
+                %p
+                  You, my solitary 'sociate, are a recluse. You don’t create for other people; instead, you do it because there's often a bright idea in front of your face that’s preventing you from sleeping. Because you put so much of yourself into your work, you’re likely possessive of it. That's fine – just, please, don’t bare your teeth!
+
+                %h5 In 2015, go outside your comfort zone.
+        
+                %button.btn-retake Retake Quiz
+                %button.btn-compare Compare Results
+
+            .results.results-bird
+              .pull-l.results-img-container
+                .results-img
+              .pull-l.results-text-container
+                %h3 
+                  %span.first-name
+                  Your Creative Spirit Animal is the...
+                %h1 Hummingbird!
+                %h5 Fast, faster, fastest!
+                %p
+                  You, my able acquaintance, are a machine. Speed and efficiency are central to your process, which is why the idea of taking too long to do something makes your heart race. Heck, in the time it’s taken you to read this, you’ve probably come up with a few jingles, a couple of logos, and an ad campaign.
+
+                %h5 In 2015, don't be afraid to slow down a little.
+        
+                %button.btn-retake Retake Quiz
+                %button.btn-compare Compare Results
+
+        %section.compare-results
+          %article
+            .results
+              .pull-l.compare-graph-container
+                #container{:style => "width:100%; height: 400px; margin: 0 auto;"}
+              .pull-l.compare-text-container
+                %h3
+                  How do you compare?
+                %h1
+                  The Results
+                %p
+                  There is a wide array of creatures in the AMG Spirit Animal Kingdom. From sea-dwellers and scuttlers to mammals and more, we’re a diverse bunch to say the least. But together? We make one heck of a team.
+
+                %p
+                  Speaking of which, hover your mouse over the pie chunks to see how everyone else stacks up!
+        
+                %button.btn-compare-retake Retake Quiz
+
+                %p
+                  This delightful distraction was brought to you by your friends in CIS. 
+                %h5 Wishing you a happy and creative 2015!
+
+              .clear
+
+          %span.btn-compare-back Back
+
+
+        %aside.progress-bar
+          %ol#progressBar
+            %li
+            %li
+            %li
+            %li
+            %li
+            %li
+            %li
+            %li
+
+
+
+    -# jQuery CDN and Local Fallback
+
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
+
+    %script{:src => "//code.highcharts.com/highcharts.js"}
+    / %script{ src: javascript_path('chart') }
+    %script{ :src => "scripts/build/site.min.js"  }

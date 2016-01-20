@@ -1,0 +1,27 @@
+@charset "UTF-8";
+@import 'assets/stylesheets/_brand_defaults.css.scss';
+@import 'assets/stylesheets/_mixins.css.scss';
+
+// Checkbox and Radio Button background images
+// -------------------------------------------
+
+@include remove-checkbox-and-radio-backgrounds;
+
+// IE8 does not support background-size
+// ------------------------------------
+
+.select-wrapper {
+  background-image: url('../images/select-box-arrows-1x.png');
+}
+
+.ie-warning {
+  display: block !important;
+  background-color: rgb(245, 245, 220);
+  border: 2px solid rgb(218, 165, 32);
+  color: rgb(218, 165, 32);
+  text-align: center;
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  padding: 20px 10px 0 10px;
+}

@@ -1,20 +1,440 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html>
   <head>
-    <meta charset='UTF-8'>
-    <meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'>
-    <!-- %link{:rel => "shortcut icon", :type => "image/x-icon", :href => "favicon.ico"} -->
-    <!--[if lte IE 8]>
-    <script type="text/javascript" src="scripts/libs/html5shiv.js"></script>
+    <title>What's Your Creative Spirit Animal?</title>
+    <meta charset='utf-8'>
+    <meta content='width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui' name='viewport'>
+    <meta description="What's Your Creative Spirit Animal?">
+    <meta content="What's Your Creative Spirit Animal" property='og:title'>
+    <meta content="What's Your Creative Spirit Animal" property='og:site_name'>
+    <meta content='website' property='og:type'>
+    <meta content='Regardless of whether your 2014 was outstanding or underwhelming, we - the Creative and Interactive Services team - want to wish you an even better 2015!' property='og:description'>
+    <meta content='summary' name='twitter:card'>
+    <meta content="What's Your Creative Spirit Animal" name='twitter:title'>
+    <meta content='Regardless of whether your 2014 was outstanding or underwhelming, we - the Creative and Interactive Services team - want to wish you an even better 2015!' name='twitter:description'>
+    <link href='favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <link href='favicon.ico' rel='icon' type='image/x-icon'>
+    <link href='http://fonts.googleapis.com/css?family=Leckerli+One|Changa+One|Montserrat:400,700|Raleway:400,800,700' rel='stylesheet' type='text/css'>
+    <link href='styles/build/main.css' rel='stylesheet'>
+    <!--[if lte IE 9]>
+      <!-- ***** %link{ rel: 'stylesheet', href: stylesheet_path('ie8') } -->
     <![endif]-->
-    <!-- %link{:href => 'http://fonts.googleapis.com/css?family=Magra:400,700|Bree+Serif', :rel => 'stylesheet', :type => 'text/css'} -->
-    <!-- %link{:href => "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", :rel => "stylesheet"} -->
-    <link href='styles/build/site.css' rel='stylesheet'>
-    <title>Danielle's Grunt Boilerplate</title>
+    <noscript>
+      <!-- ***** %link{ rel: 'stylesheet', href: stylesheet_path('noscript') } -->
+    </noscript>
+    <!-- %script{:src => "http://10.7.101.31:8080/target/target-script-min.js#anonymous"} -->
+    <!-- = render "partials/_analytics.html.haml" -->
   </head>
   <body>
-    Hello
-    <script src='http://code.jquery.com/jquery-1.11.1.min.js'></script>
+    <div class='ie-warning' style='display: none'>
+      <p>We’ve detected that your browser is out of date. Please upgrade your browser for an improved experience.</p>
+    </div>
+    <div class='loading'>
+      <div class='loading-container'>
+        <span>&#x2744</span>
+      </div>
+    </div>
+    <main role='main'>
+      <div class='main-container' style='display: none;'>
+        <div class='quiz-logo'></div>
+        <div class='start' id='snowHillContainer'></div>
+        <canvas id='canvas'></canvas>
+        <section class='quiz-start'>
+          <article>
+            <div class='heading'>
+              <h1 id='page-heading'>
+                <span class='hide-text'>What's Your Creative Spirit Animal?</span>
+              </h1>
+            </div>
+            <div class='action-container'>
+              <div class='btn-start'>
+                <span class='hide-text'>Find Out</span>
+              </div>
+            </div>
+          </article>
+          <aside class='attribution'></aside>
+        </section>
+        <section class='quiz-question' data-progress='step-1' id='question-one'>
+          <article>
+            <legend>
+              What's your name?
+            </legend>
+            <div class='field field-text'>
+              <input class='name-field' id='first_name' name='first_name' placeholder='First Name' type='text'>
+            </div>
+            <div class='field field-text'>
+              <input class='name-field' id='last_name' name='last_name' placeholder='Last Name' type='text'>
+            </div>
+            <button class='btn-continue' style='display:none;'>Continue</button>
+          </article>
+          <span class='btn-back'>Back</span>
+        </section>
+        <section class='quiz-question' data-progress='step-2' id='question-two'>
+          <article>
+            <h4>Question One</h4>
+            <legend>
+              <span class='first-name'></span>
+              What would you rather swim in?
+            </legend>
+            <div class='field field-radio option-one'>
+              <input data-key='dew' id='question-1-1' name='question-1' type='radio' value='One'>
+              <label for='question-1-1'>
+                <span class='vertical-align'>
+                  <p>Money</p>
+                </span>
+              </label>
+            </div>
+            <div class='field field-radio option-two'>
+              <input data-key='glue' id='question-1-2' name='question-1' type='radio' value='Two'>
+              <label for='question-1-2'>
+                <span class='vertical-align'>
+                  <p>Champagne</p>
+                </span>
+              </label>
+            </div>
+            <div class='field field-radio option-three'>
+              <input data-key='skew' id='question-1-3' name='question-1' type='radio' value='Three'>
+              <label for='question-1-3'>
+                <span class='vertical-align'>
+                  <p>Tapioca Pudding</p>
+                </span>
+              </label>
+            </div>
+          </article>
+          <span class='btn-back'>Back</span>
+        </section>
+        <section class='quiz-question picture-question' data-progress='step-3' id='question-three'>
+          <article>
+            <h4>Question Two</h4>
+            <legend>
+              What is your preferred headwear?
+            </legend>
+            <div class='field field-radio option-one'>
+              <input data-key='dew' id='question-4-4' name='question-4' type='radio' value='One'>
+              <label for='question-4-4'>
+                <span class='hide-text'>Cool-looking bike or motorcycle helmet</span>
+              </label>
+            </div>
+            <div class='field field-radio option-two'>
+              <input data-key='glue' id='question-4-5' name='question-4' type='radio' value='Two'>
+              <label for='question-4-5'>
+                <span class='hide-text'>Rugged-looking cowboy hat</span>
+              </label>
+            </div>
+            <div class='field field-radio option-three'>
+              <input data-key='skew' id='question-4-6' name='question-4' type='radio' value='Three'>
+              <label for='question-4-6'>
+                <span class='hide-text'>Fez</span>
+              </label>
+            </div>
+          </article>
+          <span class='btn-back'>Back</span>
+        </section>
+        <section class='quiz-question' data-progress='step-4' id='question-four'>
+          <article>
+            <h4>Question Three</h4>
+            <legend>
+              You forgot your ice cream upstairs and the stairs collapsed! How will you get back before it melts?
+            </legend>
+            <div class='field field-radio option-one'>
+              <input data-key='dew' id='question-2-4' name='question-2' type='radio' value='One'>
+              <label for='question-2-4'>
+                <span class='vertical-align'>
+                  <p>Make a bed sheet rope and climb back up.</p>
+                </span>
+              </label>
+            </div>
+            <div class='field field-radio option-two'>
+              <input data-key='glue' id='question-2-5' name='question-2' type='radio' value='Two'>
+              <label for='question-2-5'>
+                <span class='vertical-align'>
+                  <p>Build a new staircase and walk back up.</p>
+                </span>
+              </label>
+            </div>
+            <div class='field field-radio option-three'>
+              <input data-key='skew' id='question-2-6' name='question-2' type='radio' value='Three'>
+              <label for='question-2-6'>
+                <span class='vertical-align'>
+                  <p>Make a bed sheet cape and fly back up.</p>
+                </span>
+              </label>
+            </div>
+          </article>
+          <span class='btn-back'>Back</span>
+        </section>
+        <section class='quiz-question picture-question' data-progress='step-5' id='question-five'>
+          <article>
+            <h4>Question Four</h4>
+            <legend>
+              The apocalypse is here! What do you reach for?
+            </legend>
+            <div class='field field-radio option-one'>
+              <input data-key='dew' id='question-5-4' name='question-5' type='radio' value='One'>
+              <label for='question-5-4'>
+                <span class='hide-text'>Crowbar</span>
+              </label>
+            </div>
+            <div class='field field-radio option-two'>
+              <input data-key='glue' id='question-5-5' name='question-5' type='radio' value='Two'>
+              <label for='question-5-5'>
+                <span class='hide-text'>Walkie talkie</span>
+              </label>
+            </div>
+            <div class='field field-radio option-three'>
+              <input data-key='skew' id='question-5-6' name='question-5' type='radio' value='Three'>
+              <label for='question-5-6'>
+                <span class='hide-text'>A colouring book</span>
+              </label>
+            </div>
+          </article>
+          <span class='btn-back'>Back</span>
+        </section>
+        <section class='quiz-question' data-progress='step-6' id='question-six'>
+          <article>
+            <h4>Question Five</h4>
+            <legend>
+              Egads! The world’s coffee supply has run out! How will you wake up from now on?
+            </legend>
+            <div class='field field-radio option-one'>
+              <input data-key='dew' id='question-3-4' name='question-3' type='radio' value='One'>
+              <label for='question-3-4'>
+                <span class='vertical-align'>
+                  <p>Progressively harder slaps to the face.</p>
+                </span>
+              </label>
+            </div>
+            <div class='field field-radio option-two'>
+              <input data-key='glue' id='question-3-5' name='question-3' type='radio' value='Two'>
+              <label for='question-3-5'>
+                <span class='vertical-align'>
+                  <p>Go to bed early and cry yourself to sleep.</p>
+                </span>
+              </label>
+            </div>
+            <div class='field field-radio option-three'>
+              <input data-key='skew' id='question-3-6' name='question-3' type='radio' value='Three'>
+              <label for='question-3-6'>
+                <span class='vertical-align'>
+                  <p>Buy a parrot and train it to shout “Incoming!”</p>
+                </span>
+              </label>
+            </div>
+          </article>
+          <span class='btn-back'>Back</span>
+        </section>
+        <section class='quiz-question picture-question' data-progress='step-7' id='question-seven'>
+          <article>
+            <h4>Question Six</h4>
+            <legend>
+              Pick your poison.
+            </legend>
+            <div class='field field-radio option-one'>
+              <input data-key='dew' id='question-6-4' name='question-6' type='radio' value='One'>
+              <label for='question-6-4'>
+                <span class='hide-text'>A healthy fruit and vegetable smoothie</span>
+              </label>
+            </div>
+            <div class='field field-radio option-two'>
+              <input data-key='glue' id='question-6-5' name='question-6' type='radio' value='Two'>
+              <label for='question-6-5'>
+                <span class='hide-text'>A cocktail</span>
+              </label>
+            </div>
+            <div class='field field-radio option-three'>
+              <input data-key='skew' id='question-6-6' name='question-6' type='radio' value='Three'>
+              <label for='question-6-6'>
+                <span class='hide-text'>A bubbling beaker</span>
+              </label>
+            </div>
+          </article>
+          <span class='btn-back'>Back</span>
+        </section>
+        <section class='quiz-result' data-progress='step-8'>
+          <!-- .snow-container -->
+          <article>
+            <div class='results results-mandrill'>
+              <div class='pull-l results-img-container'>
+                <div class='results-img'></div>
+              </div>
+              <div class='pull-l results-text-container'>
+                <h3>
+                  <span class='first-name'></span>
+                  Your Creative Spirit Animal is the...
+                </h3>
+                <h1>Mandrill!</h1>
+                <h5>Creative, compelling, and kind of crazy.</h5>
+                <p>
+                  You, my colourful comrade, are a wild card. You might not swing through the air, but your mind sure does. Constantly flinging ideas around like they’re p… aint, your natural instinct is to push boundaries. Why? Because you’re a think-outside-the-cage genius — according to three of the seven voices in your head, anyway.
+                </p>
+                <h5>In 2015, turn those ideas into actions.</h5>
+                <button class='btn-retake'>Retake Quiz</button>
+                <button class='btn-compare'>Compare Results</button>
+              </div>
+            </div>
+            <div class='results results-okapi'>
+              <div class='pull-l results-img-container'>
+                <div class='results-img'></div>
+              </div>
+              <div class='pull-l results-text-container'>
+                <h3>
+                  <span class='first-name'></span>
+                  Your Creative Spirit Animal is the...
+                </h3>
+                <h1>Okapi!</h1>
+                <h5>Clever, well-rounded, and aware.</h5>
+                <p>
+                  You, my proportionate pal, are balanced. As calm and methodical as you are imaginative, you've got more tricks up your sleeves than someone with Swiss Army Knife arms. And while you’re more grounded than most, don't think that makes you less creative — far from it, since your ideas and productivity are often ahead of the curve.
+                </p>
+                <h5>In 2015, diversify your skills and interests.</h5>
+                <button class='btn-retake'>Retake Quiz</button>
+                <button class='btn-compare'>Compare Results</button>
+              </div>
+            </div>
+            <div class='results results-sloth'>
+              <div class='pull-l results-img-container'>
+                <div class='results-img'></div>
+              </div>
+              <div class='pull-l results-text-container'>
+                <h3>
+                  <span class='first-name'></span>
+                  Your Creative Spirit Animal is the...
+                </h3>
+                <h1>Three-Toed Sloth!</h1>
+                <h5>Imaginative and idealistic, but prone to procrastination.</h5>
+                <p>
+                  You, my visionary viewer, are a dreamer. Most people live in houses, but not the sloth. No, the sloth lives in their imagination. That epicentre of creativity and inspiration might be hard for some to find — after all, it foregoes the straight and narrow path in favour of the fun and squiggly one. But to you? It’s home.
+                </p>
+                <h5>In 2015, avoid distractions and you’ll go far.</h5>
+                <button class='btn-retake'>Retake Quiz</button>
+                <button class='btn-compare'>Compare Results</button>
+              </div>
+            </div>
+            <div class='results results-manatee'>
+              <div class='pull-l results-img-container'>
+                <div class='results-img'></div>
+              </div>
+              <div class='pull-l results-text-container'>
+                <h3>
+                  <span class='first-name'></span>
+                  Your Creative Spirit Animal is the...
+                </h3>
+                <h1>Manatee!</h1>
+                <h5>Huggable, loveable, and great with people.</h5>
+                <p>
+                  You, my friendly friend, are empathetic. You understand the importance of floating around and looking adorable, but mostly, connecting with an audience. As such, your ideas buoy people's minds, and your undeniable passion warms their hearts like a thick layer of blubber.
+                </p>
+                <h5>In 2015, champion a cause you care about.</h5>
+                <button class='btn-retake'>Retake Quiz</button>
+                <button class='btn-compare'>Compare Results</button>
+              </div>
+            </div>
+            <div class='results results-beetle'>
+              <div class='pull-l results-img-container'>
+                <div class='results-img'></div>
+              </div>
+              <div class='pull-l results-text-container'>
+                <h3>
+                  <span class='first-name'></span>
+                  Your Creative Spirit Animal is the...
+                </h3>
+                <h1>Dung Beetle!</h1>
+                <h5>Diligent, capable, and willing to get your hands dirty.</h5>
+                <p>
+                  You, my hard-working hombre, are a producer. Like The Little Engine That Could, your drive to create is surpassed only by your desire to deliver the best ball of work possible. And unlike many of your creative kin, you've managed to achieve an enviable balance between efficiency and perfection. Talk about a tough job!
+                </p>
+                <h5>In 2015, do yourself a favour and share the load.</h5>
+                <button class='btn-retake'>Retake Quiz</button>
+                <button class='btn-compare'>Compare Results</button>
+              </div>
+            </div>
+            <div class='results results-fish'>
+              <div class='pull-l results-img-container'>
+                <div class='results-img'></div>
+              </div>
+              <div class='pull-l results-text-container'>
+                <h3>
+                  <span class='first-name'></span>
+                  Your Creative Spirit Animal is the...
+                </h3>
+                <h1>Anglerfish!</h1>
+                <h5>Quiet and standoffish, but full of surprises.</h5>
+                <p>
+                  You, my solitary 'sociate, are a recluse. You don’t create for other people; instead, you do it because there's often a bright idea in front of your face that’s preventing you from sleeping. Because you put so much of yourself into your work, you’re likely possessive of it. That's fine – just, please, don’t bare your teeth!
+                </p>
+                <h5>In 2015, go outside your comfort zone.</h5>
+                <button class='btn-retake'>Retake Quiz</button>
+                <button class='btn-compare'>Compare Results</button>
+              </div>
+            </div>
+            <div class='results results-bird'>
+              <div class='pull-l results-img-container'>
+                <div class='results-img'></div>
+              </div>
+              <div class='pull-l results-text-container'>
+                <h3>
+                  <span class='first-name'></span>
+                  Your Creative Spirit Animal is the...
+                </h3>
+                <h1>Hummingbird!</h1>
+                <h5>Fast, faster, fastest!</h5>
+                <p>
+                  You, my able acquaintance, are a machine. Speed and efficiency are central to your process, which is why the idea of taking too long to do something makes your heart race. Heck, in the time it’s taken you to read this, you’ve probably come up with a few jingles, a couple of logos, and an ad campaign.
+                </p>
+                <h5>In 2015, don't be afraid to slow down a little.</h5>
+                <button class='btn-retake'>Retake Quiz</button>
+                <button class='btn-compare'>Compare Results</button>
+              </div>
+            </div>
+          </article>
+        </section>
+        <section class='compare-results'>
+          <article>
+            <div class='results'>
+              <div class='pull-l compare-graph-container'>
+                <div id='container' style='width:100%; height: 400px; margin: 0 auto;'></div>
+              </div>
+              <div class='pull-l compare-text-container'>
+                <h3>
+                  How do you compare?
+                </h3>
+                <h1>
+                  The Results
+                </h1>
+                <p>
+                  There is a wide array of creatures in the AMG Spirit Animal Kingdom. From sea-dwellers and scuttlers to mammals and more, we’re a diverse bunch to say the least. But together? We make one heck of a team.
+                </p>
+                <p>
+                  Speaking of which, hover your mouse over the pie chunks to see how everyone else stacks up!
+                </p>
+                <button class='btn-compare-retake'>Retake Quiz</button>
+                <p>
+                  This delightful distraction was brought to you by your friends in CIS.
+                </p>
+                <h5>Wishing you a happy and creative 2015!</h5>
+              </div>
+              <div class='clear'></div>
+            </div>
+          </article>
+          <span class='btn-compare-back'>Back</span>
+        </section>
+        <aside class='progress-bar'>
+          <ol id='progressBar'>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ol>
+        </aside>
+      </div>
+    </main>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src='//code.highcharts.com/highcharts.js'></script>
+    <!-- %script{ src: javascript_path('chart') } -->
     <script src='scripts/build/site.min.js'></script>
   </body>
 </html>

@@ -1,51 +1,149 @@
-@mixin transition($transition-property, $transition-time, $method) {
-  -webkit-transition: $transition-property $transition-time $method;
-     -moz-transition: $transition-property $transition-time $method;
-      -ms-transition: $transition-property $transition-time $method;
-       -o-transition: $transition-property $transition-time $method;
-          transition: $transition-property $transition-time $method;
+// Border radius
+// -------------
+
+@mixin border-radius($value) {
+  -webkit-border-radius: $value;
+  -moz-border-radius: $value;
+  border-radius: $value;
 }
 
-@mixin transitionTransform($transition-time, $method) {
-  -webkit-transition: -webkit-transform $transition-time $method;
-     -moz-transition: -moz-transform $transition-time $method;
-      -ms-transition: -ms-transform $transition-time $method;
-       -o-transition: -o-transform $transition-time $method;
-          transition: transform $transition-time $method;
-}
+// Clear fix
+// ---------
 
-@mixin transform($transforms) {
-  -webkit-transform: $transforms;
-     -moz-transform: $transforms;
-      -ms-transform: $transforms;
-       -o-transform: $transforms;
-          transform: $transforms;
-}
+// See h5bp.com/q
 
-@mixin animation-duration($duration) {
-  -webkit-animation-duration: $duration;
-          animation-duration: $duration;
-}
-
-@mixin animation-name($name) {
-  -webkit-animation-name: $name;
-          animation-name: $name;
-}
-
-
-////// MQ's //////
-// $large-screen: "(min-width: 1200px)";
-// $medium-screen: "(max-width: 767px)";
-// $small-screen: "(max-width: 520px)";
-
-@mixin breakpoint($point) {
-  @if $point == lrg-screen {
-    @media (max-width: 1200px) { @content; }
+@mixin clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
   }
-  @else if $point == med-screen {
-    @media (max-width: 767px) { @content; }
+  &:after {
+    clear: both;
   }
-  @else if $point == sml-screen {
-    @media (max-width: 520px)  { @content; }
+}
+
+// Buttons
+// -------
+
+@mixin button($color-1: $emphasis-color-2, $color-2: lighten($emphasis-color-2, 10%), $text-color: #FFF) {
+  margin: 0 5px 0 0;
+  padding: 8px 30px;
+  font-size: 1em;
+  color: $text-color;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-family: $secondary-font;
+  background-color: $color-1;
+  display: inline-block;
+  -webkit-transition: background-color 0.1s ease-in-out;
+  -moz-transition:    background-color 0.1s ease-in-out;
+  -o-transition:      background-color 0.1s ease-in-out;
+  transition:         background-color 0.1s ease-in-out;
+  &:hover,
+  &:focus {
+    background-color: $color-2;
   }
+}
+
+@mixin gradient-button($color-1: $tertiary-color, $color-2: lighten($tertiary-color, 10%), $text-color: #FFF) {
+  @include button($color-1, $color-2, $text-color);
+  background-image: -o-linear-gradient(top, $color-2 6%, $color-1 50%);
+  background-image: -moz-linear-gradient(top, $color-2 6%, $color-1 50%);
+  background-image: -ms-linear-gradient(top, $color-2 6%, $color-1 50%);
+  background-image: -webkit-linear-gradient(top, $color-2 6%, $color-1 50%);
+  background-image: linear-gradient(top, $color-2 6%, $color-1 50%);
+  &:hover,
+  &:focus {
+    background-image: -o-linear-gradient(top, $color-2 6%, $color-1 100%);
+    background-image: -moz-linear-gradient(top, $color-2 6%, $color-1 100%);
+    background-image: -ms-linear-gradient(top, $color-2 6%, $color-1 100%);
+    background-image: -webkit-linear-gradient(top, $color-2 6%, $color-1 100%);
+    background-image: linear-gradient(top, $color-2 6%, $color-1 100%);
+  }
+}
+
+// Placeholder text
+// ----------------
+
+// The following rules must be declared individually
+
+@mixin placeholder-color($color: #000000) {
+  &::-webkit-input-placeholder { color: $color; }
+  &:-moz-placeholder { color: $color; }
+  &::-moz-placeholder { color: $color; }
+  &:-ms-input-placeholder { color: $color; }
+}
+
+// Form fields
+// -----------
+
+@mixin form-element {
+  height: 36px;
+  padding: 4px 6px;
+  line-height: normal;
+  vertical-align: middle;
+  border: 2px solid lighten($primary-color, 35%);
+  color: $primary-color;
+  background-color: #FFF;
+  display: inline-block;
+  // Remove inner shadows from fields in mobile Webkit browsers
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+@mixin form-element-focus {
+  border-color: $tertiary-color;
+}
+
+@mixin form-element-error {
+  border-color: $emphasis-color;
+  background-color: lighten($emphasis-color, 35%);
+}
+
+@mixin form-element-error-focus {
+  border-color: $emphasis-color;
+  background-color: #FFF;
+}
+
+// Remove Checkbox and Radio Button background images
+// --------------------------------------------------
+
+@mixin remove-checkbox-and-radio-backgrounds {
+  .field-checkbox input[type='checkbox'],
+  .field-radio input[type='radio'] {
+    margin: 3px 0.5ex;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+    position: relative;
+    top: auto;
+    right: auto;
+    + label {
+      line-height: 1;
+    }
+    + label:before {
+      display: none;
+    }
+  }
+}
+
+@mixin hardware-acceleration {
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
 }

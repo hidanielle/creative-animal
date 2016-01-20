@@ -1,0 +1,310 @@
+// Margins
+// -------
+
+form {
+  margin: 0;
+  padding: 0;
+}
+fieldset,
+.field {
+  padding: 0;
+  border: 0;
+}
+// Groups of fields (checkboxes, radios, date)
+.group-checkbox .field,
+.group-radio .field {
+  margin-bottom: 5px;
+}
+.group-date .field {
+  margin-bottom: 0;
+}
+
+// Normalize fonts
+// ---------------
+
+label,
+input,
+button,
+select,
+.select-wrapper select,
+.select-text,
+textarea {
+  font-family: $default-font;
+  font-size: 1em;
+  color: $primary-color;
+  // Fix font rendering problems in various browsers
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+}
+
+
+// Field labels
+// ------------
+
+label,
+.group-checkbox legend,
+.group-radio legend,
+.group-date legend {
+  margin: 0 0 3px 0;
+  font-size: 1em;
+  font-weight: bold;
+  color: $primary-color;
+  display: block;
+}
+.group-checkbox legend,
+.group-radio legend {
+  margin-bottom: 6px;
+}
+
+// Info and error messages
+// -----------------------
+
+.group-checkbox,
+.group-radio,
+.group-date,
+.field {
+  .info,
+  .error {
+    margin: 5px 0 0 0;
+    font-size: 1em;
+    p {
+      margin: 0;
+    }
+  }
+  .info,
+  .info p {
+    color: $primary-color;
+  }
+  .error,
+  .error p {
+    color: $emphasis-color;
+    font-weight: bold;
+  }
+}
+.global-error {
+  margin: 0 0 20px 0;
+  padding: 20px 10px;
+  color: #FFF;
+  font-weight: bold;
+  background-color: $emphasis-color;
+  p {
+    margin-bottom: 0;
+  }
+}
+
+// Required field indicators
+// -------------------------
+
+.mandatory {
+  color: $emphasis-color;
+  text-align: right;
+  font-weight: bold;
+}
+.required {
+  color: $emphasis-color;
+  font-style: normal;
+  font-weight: bold;
+}
+
+// ==========================================================================
+// Form Controls
+// ==========================================================================
+
+// Buttons
+// -------
+
+button,
+input[type="button"],
+input[type="submit"],
+a.link-button {
+  @include button;
+}
+
+// Text fields
+// -----------
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  width: 100%;
+  @include form-element;
+  &:focus {
+    @include form-element-focus;
+  }
+}
+.field_with_errors {
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"] {
+    @include form-element-error;
+    &:focus {
+      @include form-element-error-focus;
+    }
+  }
+}
+textarea,
+.field_with_errors textarea {
+  height: 80px;
+}
+
+.field-text {
+  margin: 10px auto;
+  max-width: 300px;
+  box-shadow: -3px 3px 0px rgba(158, 195, 212, 0.8);
+}
+
+input[type="text"] {
+  -webkit-appearance: none;
+}
+
+// Checkboxes and radio buttons
+// ----------------------------
+
+.field-checkbox,
+.field-radio {
+  
+  input {
+    vertical-align: top;
+  }
+  label {
+    margin-bottom: 0;
+    font-weight: normal;
+    display: inline-block;
+  }
+}
+
+// Select boxes
+// ------------
+
+select {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+// Date select boxes
+// -----------------
+
+.group-date .field {
+  width: 32%;
+  margin-bottom: 0;
+  display: inline-block;
+  label {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    text-indent: -9999px;
+  }
+}
+
+// ==========================================================================
+// Checkbox and Radio Button background images
+// ==========================================================================
+
+// The following can be undone by the "remove-checkbox-and-radio-backgrounds" mixin
+
+
+
+
+// ==========================================================================
+// Custom Select Boxes
+// ==========================================================================
+
+// Extra markup and classes added via custom-select-boxes.js
+
+// Select box background
+// ---------------------
+
+.select-wrapper {
+  @include form-element;
+  padding: 0;
+  background-image: url('/images/select-box-arrows-2x.png');
+  background-repeat: no-repeat;
+  background-position: right 0;
+  background-size: auto 144px; // Background image height
+  select {
+    -webkit-appearance: menulist-button;
+    background-color: #FFF;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+}
+.select-wrapper.focus {
+  @include form-element-focus;
+  background-position: right -36px; // Form element height (see "form-element" mixin)
+}
+.select-wrapper,
+.select-wrapper select,
+.select-text {
+  width: 100%;
+}
+.select-wrapper,
+.select-wrapper select {
+  cursor: pointer;
+}
+.select-wrapper select,
+.select-text {
+  height: 32px; // Form element height - border-top - border-bottom (see "form-element" mixin)
+}
+.select-text {
+  border-right: 40px solid transparent; // Prevents text from extending over top of dropdown arrow
+  white-space: nowrap;
+}
+
+// Select box text
+// ---------------
+
+.select-text {
+  margin-top: -34px; // Form element height - border-top
+  padding-left: 10px;
+  line-height: 32px; // Form element height - border-top - border-bottom
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+// Error state
+// -----------
+
+.field_with_errors {
+  .select-wrapper {
+    @include form-element-error;
+    background-position: right -72px;
+  }
+  .select-wrapper.focus {
+    @include form-element-error-focus;
+    background-position: right -108px;
+  }
+}
+
+// ==========================================================================
+// Form field placeholders
+// ==========================================================================
+
+// Javascript polyfill for older browsers provided by placeholders.js
+

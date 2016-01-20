@@ -1,0 +1,13 @@
+@charset "UTF-8";
+@import 'assets/stylesheets/_brand_defaults.css.scss';
+@import 'assets/stylesheets/_mixins.css.scss';
+
+// Sometimes you need to hide an element on page load, then later show it via
+// Javascript. Unfortunately, if the user has Javascript disabled then they'll
+// never see the element. One way around this is to hide the element in your
+// main CSS file and create a seperate "noscript.css" file which shows the
+// element again when the user has Javascript disabled.
+
+#hidden-element {
+  display: block;
+}

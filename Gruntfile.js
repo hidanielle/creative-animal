@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 
     uglify: {
       build: {
-        src: ['scripts/libs/*.js', 'scripts/site.js'],
+        src: ['scripts/vendor/*.js', 'scripts/*.js'],
         dest: 'scripts/build/site.min.js'
       }
     },
@@ -18,7 +18,7 @@ module.exports = function(grunt) {
           style: 'compressed'
         },
         files: {                         // Dictionary of files
-          'styles/site.css': 'styles/site.scss'       // 'destination': 'source'
+          'styles/main.css': 'styles/main.scss'       // 'destination': 'source'
         }
       }
     },
@@ -29,8 +29,8 @@ module.exports = function(grunt) {
         options: {
           
         },
-        src: 'styles/site.css',
-        dest: 'styles/build/site.css'
+        src: 'styles/main.css',
+        dest: 'styles/build/main.css'
       },
     },
 
@@ -56,11 +56,11 @@ module.exports = function(grunt) {
     watch: {
       options: { livereload: true },
       scripts: {
-        files: ['scripts/libs/*.js', 'scripts/site.js'],
+        files: ['scripts/vendor/*.js', 'scripts/*.js'],
         tasks: ['uglify']
       }, //script
       css: {
-        files: ['styles/site.scss'],
+        files: ['styles/*.scss'],
         tasks: ['sass']
       }, //sass
       html: {
