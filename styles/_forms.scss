@@ -243,7 +243,7 @@ select {
 .select-wrapper {
   @include form-element;
   padding: 0;
-  background-image: url('/images/select-box-arrows-2x.png');
+  background-image: url('../../images/select-box-arrows-2x.png');
   background-repeat: no-repeat;
   background-position: right 0;
   background-size: auto 144px; // Background image height

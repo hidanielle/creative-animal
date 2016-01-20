@@ -295,7 +295,7 @@ legend {
 
 
 .quiz-start {
-  // background-image: url('/images/bg_home.png'), url('/images/bg_home-empty.png'), url('/images/bg_empty.png');
+  // background-image: url('../../images/bg_home.png'), url('../../images/bg_home-empty.png'), url('../../images/bg_empty.png');
   background-repeat: no-repeat, repeat-x;
   background-position: bottom;
   background-size: 100%;
@@ -318,7 +318,7 @@ legend {
 }
 
 .quiz-result {
-  // background-image: url('/images/bg_result.png');
+  // background-image: url('../../images/bg_result.png');
   background-repeat: repeat-x;
   background-position: top;
   background-size: 100%;
@@ -328,7 +328,7 @@ legend {
   transform: translate3d(0, -100%, 0);
   padding: 60px;
   article {
-    background-image: url('/images/bg_compare.png');
+    background-image: url('../../images/bg_compare.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -465,21 +465,21 @@ legend {
   &.option-one {
     input[type='radio'] {
       + label:before {
-        background-image: url('/images/r1_desktop.png');
+        background-image: url('../../images/r1_desktop.png');
       }
     }
   }
   &.option-two {
     input[type='radio'] {
       + label:before {
-        background-image: url('/images/r2_desktop.png');
+        background-image: url('../../images/r2_desktop.png');
       }
     }
   }
   &.option-three {
     input[type='radio'] {
       + label:before {
-        background-image: url('/images/r3_desktop.png');
+        background-image: url('../../images/r3_desktop.png');
       }
     }
   }
@@ -490,7 +490,7 @@ legend {
     input[type="radio"] {
       + label {
         text-indent: -9999px;
-        background-image: url('/images/question-icons.png');
+        background-image: url('../../images/question-icons.png');
         background-repeat: no-repeat;
         background-size: 100%;
       }
@@ -499,7 +499,7 @@ legend {
 }
 
 #question-three{
-  // background-image: url('/images/bg_Q4.png');
+  // background-image: url('../../images/bg_Q4.png');
   .option-one {
     label {
       background-position: 0 -285px;  
@@ -517,7 +517,7 @@ legend {
   }
 }
 #question-five {
-  // background-image: url('/images/bg_Q5.png');
+  // background-image: url('../../images/bg_Q5.png');
   .option-one {
     label {
       background-position: 0 -571px;  
@@ -535,7 +535,7 @@ legend {
   }
 }
 #question-seven {
-  // background-image: url('/images/bg_Q6.png');
+  // background-image: url('../../images/bg_Q6.png');
   .option-one {
     label {
       background-position: 0 -857px;  
@@ -558,7 +558,7 @@ legend {
 // }
 
 #snowHillContainer {
-  background-image: url('/images/bg_full.jpg'), linear-gradient(to bottom, #c0e2f4 50%, #ffffff 50%);
+  background-image: url('../../images/bg_full.jpg'), linear-gradient(to bottom, #c0e2f4 50%, #ffffff 50%);
   background-repeat: no-repeat;
   background-size: 800%, 200%;
   background-position: left bottom, top;
@@ -655,7 +655,7 @@ legend {
   display: block;
   text-indent: -9999px;
   width: 100%;
-  background-image: url('/images/creative-lockup2x.png');
+  background-image: url('../../images/creative-lockup2x.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
@@ -775,7 +775,7 @@ legend {
 
 .btn-start {
   margin: 0 auto;
-  background-image: url('/images/btn-findout2x.png');
+  background-image: url('../../images/btn-findout2x.png');
   background-repeat: no-repeat;
   background-size: 100%;
   cursor: pointer;
@@ -826,7 +826,7 @@ legend {
   width: 196px;
   height: 96px;
   z-index: 100;
-  background-image: url('/images/creative-lockup.png');
+  background-image: url('../../images/creative-lockup.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
@@ -838,7 +838,7 @@ legend {
 
 .attribution {
   bottom: 0;
-  background-image: url('/images/bw-amg-logo2x.png');
+  background-image: url('../../images/bw-amg-logo2x.png');
   background-repeat: no-repeat;
   background-size: 40px;
   background-position: 20px center;
@@ -928,25 +928,25 @@ legend {
   background-repeat: no-repeat;
   background-size: 100%;
   .results-mandrill & {
-    background-image: url('/images/results-mandrill.gif');
+    background-image: url('../../images/results-mandrill.gif');
   }
   .results-beetle & {
-    background-image: url('/images/results-beetle.gif');
+    background-image: url('../../images/results-beetle.gif');
   }
   .results-bird & {
-    background-image: url('/images/results-bird.gif');
+    background-image: url('../../images/results-bird.gif');
   }
   .results-fish & {
-    background-image: url('/images/results-fish.gif');
+    background-image: url('../../images/results-fish.gif');
   }
   .results-manatee & {
-    background-image: url('/images/results-manatee.gif');
+    background-image: url('../../images/results-manatee.gif');
   }
   .results-okapi & {
-    background-image: url('/images/results-okapi.gif');
+    background-image: url('../../images/results-okapi.gif');
   }
   .results-sloth & {
-    background-image: url('/images/results-sloth.gif');
+    background-image: url('../../images/results-sloth.gif');
   }
 }
 

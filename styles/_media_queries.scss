@@ -182,7 +182,7 @@
           background-color: #fff;
           border-radius: 0;
           padding: 20px 20px 160px 20px;
-          background-image: url('/images/bg-result-trees.png');
+          background-image: url('../../images/bg-result-trees.png');
           background-repeat: no-repeat;
           background-size: 100%;
           background-position: left bottom;
@@ -197,7 +197,7 @@
     position: absolute !important;
   }
   #snowHillContainer {
-    background-image: url('/images/bg_full-mobile.jpg'), linear-gradient(to bottom, #c0e0f1 50%, white 50%);
+    background-image: url('../../images/bg_full-mobile.jpg'), linear-gradient(to bottom, #c0e0f1 50%, white 50%);
     &.step-1 {
       height: 150%;
     }
@@ -227,7 +227,7 @@
     display: none;
   }
   .btn-start {
-    background-image: url('/images/btn-findout-mobile.png');
+    background-image: url('../../images/btn-findout-mobile.png');
     width: 60%;
   }
   .heading {

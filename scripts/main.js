@@ -34,15 +34,15 @@ function preloadimages(arr){
 //sample run
 preloadimages(
   [
-  '/images/bg_full.jpg',
-  '/images/bg_full-mobile.jpg',
-  '/images/results-beetle.gif',
-  '/images/results-bird.gif',
-  '/images/results-fish.gif',
-  '/images/results-manatee.gif',
-  '/images/results-mandrill.gif',
-  '/images/results-okapi.gif',
-  '/images/results-sloth.gif'
+  '../../images/bg_full.jpg',
+  '../../images/bg_full-mobile.jpg',
+  '../../images/results-beetle.gif',
+  '../../images/results-bird.gif',
+  '../../images/results-fish.gif',
+  '../../images/results-manatee.gif',
+  '../../images/results-mandrill.gif',
+  '../../images/results-okapi.gif',
+  '../../images/results-sloth.gif'
   ]
 ).done(function(images){
   setTimeout(function() {
