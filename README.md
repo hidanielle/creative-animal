@@ -6,4 +6,6 @@ The illustrations and designs were done completely in house, and the front end d
  
 The site is fully responsive and works on all modern browsers, as far as IE10
 
+[View demo](http://hidanielle.com/tests/creative-animal/)
+
 **This is a repurposed version of the original site for demonstration purposes only and may not work exactly as intended!**
