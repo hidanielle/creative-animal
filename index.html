@@ -36,10 +36,10 @@
     </div>
     <main role='main'>
       <div class='main-container' style='display: none;'>
-        <div class='quiz-logo'></div>
+        <div class='quiz-logo' id='quizLogo'></div>
         <div class='start' id='snowHillContainer'></div>
         <canvas id='canvas'></canvas>
-        <section class='quiz-start'>
+        <section class='quiz-start' id='quizStart'>
           <article>
             <div class='heading'>
               <h1 id='page-heading'>
@@ -47,29 +47,29 @@
               </h1>
             </div>
             <div class='action-container'>
-              <div class='btn-start'>
+              <div class='btn-start' id='btnStart'>
                 <span class='hide-text'>Find Out</span>
               </div>
             </div>
           </article>
           <aside class='attribution'></aside>
         </section>
-        <section class='quiz-question' data-progress='step-1' id='question-one'>
+        <section class='quiz-question' data-progress='step-1' id='questionOne'>
           <article>
             <legend>
               What's your name?
             </legend>
             <div class='field field-text'>
-              <input class='name-field' id='first_name' name='first_name' placeholder='First Name' type='text'>
+              <input class='name-field' id='firstName' name='first_name' placeholder='First Name' type='text'>
             </div>
             <div class='field field-text'>
-              <input class='name-field' id='last_name' name='last_name' placeholder='Last Name' type='text'>
+              <input class='name-field' id='lastName' name='last_name' placeholder='Last Name' type='text'>
             </div>
-            <button class='btn-continue' style='display:none;'>Continue</button>
+            <button class='btn-continue' id='btnContinue' style='display:none;'>Continue</button>
           </article>
           <span class='btn-back'>Back</span>
         </section>
-        <section class='quiz-question' data-progress='step-2' id='question-two'>
+        <section class='quiz-question' data-progress='step-2' id='questionTwo'>
           <article>
             <h4>Question One</h4>
             <legend>
@@ -103,7 +103,7 @@
           </article>
           <span class='btn-back'>Back</span>
         </section>
-        <section class='quiz-question picture-question' data-progress='step-3' id='question-three'>
+        <section class='quiz-question picture-question' data-progress='step-3' id='questionThree'>
           <article>
             <h4>Question Two</h4>
             <legend>
@@ -130,7 +130,7 @@
           </article>
           <span class='btn-back'>Back</span>
         </section>
-        <section class='quiz-question' data-progress='step-4' id='question-four'>
+        <section class='quiz-question' data-progress='step-4' id='questionFour'>
           <article>
             <h4>Question Three</h4>
             <legend>
@@ -163,7 +163,7 @@
           </article>
           <span class='btn-back'>Back</span>
         </section>
-        <section class='quiz-question picture-question' data-progress='step-5' id='question-five'>
+        <section class='quiz-question picture-question' data-progress='step-5' id='questionFive'>
           <article>
             <h4>Question Four</h4>
             <legend>
@@ -190,7 +190,7 @@
           </article>
           <span class='btn-back'>Back</span>
         </section>
-        <section class='quiz-question' data-progress='step-6' id='question-six'>
+        <section class='quiz-question' data-progress='step-6' id='questionSix'>
           <article>
             <h4>Question Five</h4>
             <legend>
@@ -223,7 +223,7 @@
           </article>
           <span class='btn-back'>Back</span>
         </section>
-        <section class='quiz-question picture-question' data-progress='step-7' id='question-seven'>
+        <section class='quiz-question picture-question' data-progress='step-7' id='questionSeven'>
           <article>
             <h4>Question Six</h4>
             <legend>
@@ -250,7 +250,7 @@
           </article>
           <span class='btn-back'>Back</span>
         </section>
-        <section class='quiz-result' data-progress='step-8'>
+        <section class='quiz-result' data-progress='step-8' id='quizResult'>
           <!-- .snow-container -->
           <article>
             <div class='results results-mandrill'>
@@ -388,7 +388,7 @@
             </div>
           </article>
         </section>
-        <section class='compare-results'>
+        <section class='compare-results' id='compareResults'>
           <article>
             <div class='results'>
               <div class='pull-l compare-graph-container'>
@@ -418,7 +418,7 @@
           </article>
           <span class='btn-compare-back'>Back</span>
         </section>
-        <aside class='progress-bar'>
+        <aside class='progress-bar' id='progressBarContainer'>
           <ol id='progressBar'>
             <li></li>
             <li></li>

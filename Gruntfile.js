@@ -89,7 +89,7 @@ module.exports = function(grunt) {
   grunt.registerTask( 'css', [ 'sass', 'autoprefixer' ] );
 
   // Serve presentation locally
-  grunt.registerTask( 'serve', [ 'connect', 'watch' ] );
+  grunt.registerTask( 'serve', [ 'default', 'connect', 'watch' ] );
  
 
 };

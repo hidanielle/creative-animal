@@ -49,33 +49,33 @@
 
 
       .main-container{:style => "display: none;"}
-        .quiz-logo
+        #quizLogo.quiz-logo
         #snowHillContainer.start
         %canvas#canvas
-        %section.quiz-start
+        %section#quizStart.quiz-start
           %article
             .heading
               %h1#page-heading 
                 %span.hide-text What's Your Creative Spirit Animal?
             .action-container
-              .btn-start 
+              #btnStart.btn-start 
                 %span.hide-text Find Out
           %aside.attribution
 
-        %section#question-one.quiz-question{:data => {:progress => "step-1"}}
+        %section#questionOne.quiz-question{:data => {:progress => "step-1"}}
           %article
             %legend
               What's your name?
             .field.field-text
-              %input.name-field{ placeholder: 'First Name', type: 'text', name: 'first_name', id: 'first_name' }
+              %input.name-field{ placeholder: 'First Name', type: 'text', name: 'first_name', id: 'firstName' }
             .field.field-text
-              %input.name-field{ placeholder: 'Last Name', type: 'text', name: 'last_name', id: 'last_name' }
+              %input.name-field{ placeholder: 'Last Name', type: 'text', name: 'last_name', id: 'lastName' }
 
-            %button.btn-continue{:style => "display:none;"} Continue
+            %button#btnContinue.btn-continue{:style => "display:none;"} Continue
 
           %span.btn-back Back
 
-        %section#question-two.quiz-question{:data => {:progress => "step-2"}}
+        %section#questionTwo.quiz-question{:data => {:progress => "step-2"}}
           %article
             %h4 Question One
             %legend
@@ -100,7 +100,7 @@
           %span.btn-back Back
 
 
-        %section#question-three.quiz-question.picture-question{:data => {:progress => "step-3"}}
+        %section#questionThree.quiz-question.picture-question{:data => {:progress => "step-3"}}
           %article
             %h4 Question Two
             %legend
@@ -121,7 +121,7 @@
           %span.btn-back Back
 
 
-        %section#question-four.quiz-question{:data => {:progress => "step-4"}}
+        %section#questionFour.quiz-question{:data => {:progress => "step-4"}}
           %article
             %h4 Question Three
             %legend
@@ -144,7 +144,7 @@
 
           %span.btn-back Back
 
-        %section#question-five.quiz-question.picture-question{:data => {:progress => "step-5"}}
+        %section#questionFive.quiz-question.picture-question{:data => {:progress => "step-5"}}
           %article
             %h4 Question Four
             %legend
@@ -164,7 +164,7 @@
 
           %span.btn-back Back
 
-        %section#question-six.quiz-question{:data => {:progress => "step-6"}}
+        %section#questionSix.quiz-question{:data => {:progress => "step-6"}}
           %article
             %h4 Question Five
             %legend
@@ -188,7 +188,7 @@
           %span.btn-back Back
 
 
-        %section#question-seven.quiz-question.picture-question{:data => {:progress => "step-7"}}
+        %section#questionSeven.quiz-question.picture-question{:data => {:progress => "step-7"}}
           %article
             %h4 Question Six
             %legend
@@ -209,7 +209,7 @@
           %span.btn-back Back
 
 
-        %section.quiz-result{:data => {:progress => "step-8"}}
+        %section#quizResult.quiz-result{:data => {:progress => "step-8"}}
           / .snow-container
           %article
             .results.results-mandrill
@@ -332,7 +332,7 @@
                 %button.btn-retake Retake Quiz
                 %button.btn-compare Compare Results
 
-        %section.compare-results
+        %section#compareResults.compare-results
           %article
             .results
               .pull-l.compare-graph-container
@@ -359,7 +359,7 @@
           %span.btn-compare-back Back
 
 
-        %aside.progress-bar
+        %aside#progressBarContainer.progress-bar
           %ol#progressBar
             %li
             %li
